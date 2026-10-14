@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Sanchay Pre-Commit Guard: Prevent Credentials, Secrets & APIs from Leaking
+# ==============================================================================
+
+# 1. Block prohibited file patterns from being staged
+FORBIDDEN_FILES_REGEX='(^|/)(\.env|\.env\..*|.*\.env|local\.properties|secrets\.properties|.*-secret\.(yml|yaml|properties)|.*\.jks|.*\.keystore|google-services\.json|credentials\.json)$'
+EXEMPT_FILES_REGEX='(^|/)(.*\.example|.*\.sample)$'
+
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+for FILE in $STAGED_FILES; do
+    if echo "$FILE" | grep -Eq "$EXEMPT_FILES_REGEX"; then
+        continue
+    fi
+    if echo "$FILE" | grep -Eq "$FORBIDDEN_FILES_REGEX"; then
+        echo ""
+        echo "🚨 [SECURITY ERROR] Attempting to commit prohibited sensitive file: $FILE"
+        echo "   Secrets, credentials, and local environment files must never be committed."
+        echo "   Run: git reset HEAD '$FILE' and ensure it is listed in .gitignore."
+        echo ""
+        exit 1
+    fi
+done
+
+# 2. Block prohibited secret patterns inside staged diffs
+STAGED_DIFF=$(git diff --cached --diff-filter=ACM -U0)
+
+PATTERNS=(
+    'AIza[-A-Za-z0-9_]{35}'
+    'postgres(ql)?://[a-zA-Z0-9_\-]+:[^@\s]+@[a-zA-Z0-9\.\-]+'
+    'npg_[0-9A-Za-z]{10,}'
+    '-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----'
+)
+
+for PATTERN in "${PATTERNS[@]}"; do
+    MATCHES=$(echo "$STAGED_DIFF" | grep -E '^[+]' | grep -v '^[+]{3}' | grep -E -- "$PATTERN" || true)
+    if [ -n "$MATCHES" ]; then
+        echo ""
+        echo "🚨 [SECURITY ERROR] Potential API Key / Password / Secret detected in staged changes!"
+        echo "   Pattern matched: $PATTERN"
+        echo "   Offending line snippet: $(echo "$MATCHES" | head -n 1 | cut -c 1-80)..."
+        echo ""
+        echo "   Please remove hardcoded credentials and store them in gitignored local.properties or environment variables."
+        echo ""
+        exit 1
+    fi
+done
+
+exit 0

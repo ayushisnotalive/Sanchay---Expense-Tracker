@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="add_expense_shortcut"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_add_expense_short"
+        android:shortcutLongLabel="@string/shortcut_add_expense_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.camuel.sanchay"
+            android:targetClass="com.camuel.sanchay.MainActivity">
+            <extra android:name="navigate_to" android:value="add_expense" />
+        </intent>
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="ai_assistant_shortcut"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_ai_assistant_short"
+        android:shortcutLongLabel="@string/shortcut_ai_assistant_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.camuel.sanchay"
+            android:targetClass="com.camuel.sanchay.MainActivity">
+            <extra android:name="navigate_to" android:value="ai_assistant" />
+        </intent>
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="search_shortcut"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_search_short"
+        android:shortcutLongLabel="@string/shortcut_search_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.camuel.sanchay"
+            android:targetClass="com.camuel.sanchay.MainActivity">
+            <extra android:name="navigate_to" android:value="search" />
+        </intent>
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

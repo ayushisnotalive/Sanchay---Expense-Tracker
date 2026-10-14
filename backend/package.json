@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Institutional-grade Java 21 REST API backend for the Sanchay Personal Finance & Wealth suite.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "prisma:push": "prisma db push",
+    "prisma:generate": "prisma generate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@prisma/client": "^5.22.0",
+    "prisma": "^5.22.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.6",
+    "express": "^5.2.1"
+  }
+}

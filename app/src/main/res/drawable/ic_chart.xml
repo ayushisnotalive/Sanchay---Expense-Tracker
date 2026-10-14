@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Background rectangle for the chart -->
+    <path
+        android:fillColor="#D3D3D3"
+        android:pathData="M2,2h20v20H2z" />
+
+    <!-- Vertical bars representing the chart -->
+    <path
+        android:fillColor="#3F51B5"
+        android:pathData="M5,18h2v-6H5zM9,18h2v-10H9zM13,18h2v-8h-2zM17,18h2v-12h-2z" />
+
+    <!-- Chart border -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M1,21h22v-18H1v18zm2-2v-16h18v16H3z" />
+
+</vector>

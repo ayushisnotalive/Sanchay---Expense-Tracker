@@ -1,0 +1,27 @@
+<!-- res/menu/drawer_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile" />
+
+    <item
+        android:id="@+id/nav_statistics"
+        android:title="Statistics"
+        android:icon="@drawable/ic_file" />
+
+    <item
+        android:id="@+id/nav_expense_history"
+        android:title="Expense History"
+        android:icon="@drawable/ic_history" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_logout" />
+</menu>

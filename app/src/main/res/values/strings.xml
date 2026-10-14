@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Sanchay</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string-array name="reminder_frequency_options">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shortcut_add_expense_short">Add Expense</string>
+    <string name="shortcut_add_expense_long">Log New Expense</string>
+    <string name="shortcut_ai_assistant_short">AI Advisor</string>
+    <string name="shortcut_ai_assistant_long">Ask AI Financial Advisor</string>
+    <string name="shortcut_search_short">Search</string>
+    <string name="shortcut_search_long">Search Transactions</string>
+</resources>

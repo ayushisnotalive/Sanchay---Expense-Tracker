@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".DashboardFragment">
+
+    <!-- Current Balance Section -->
+    <TextView
+        android:id="@+id/tv_balance_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Current Balance"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_monthly_expense_title"
+        android:gravity="center"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/tv_current_balance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_balance_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_monthly_expenses"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <!-- Monthly Expense Section -->
+    <TextView
+        android:id="@+id/tv_monthly_expense_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Total Monthly Expenses"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_balance_title"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/tv_monthly_expenses"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_monthly_expense_title"
+        app:layout_constraintLeft_toRightOf="@id/tv_current_balance"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <!-- Date Range Selector -->
+    <Button
+        android:id="@+id/btn_date_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date Range"
+        app:layout_constraintTop_toBottomOf="@id/tv_monthly_expenses"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Expense Category Breakdown (Spinner) -->
+    <Spinner
+        android:id="@+id/spinner_expense_categories"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_date_range"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:padding="8dp" />
+
+    <!-- Recent Transactions Title -->
+    <TextView
+        android:id="@+id/tv_recent_transactions_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recent Transactions"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/spinner_expense_categories"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center" />
+
+    <ListView
+        android:id="@+id/listview_recent_transactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_recent_transactions_title"
+        app:layout_constraintBottom_toTopOf="@id/fab_add_expense"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="vertical" />
+
+    <!--com.camuel.sanchay.CustomPieChart
+        android:id="@+id/custom_pie_chart"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/listview_recent_transactions"
+        app:layout_constraintBottom_toTopOf="@id/fab_add_expense"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"/-->
+
+    <!-- FAB Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_expense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:contentDescription="Add Expense"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="56dp"
+        app:backgroundTint="@color/design_default_color_primary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

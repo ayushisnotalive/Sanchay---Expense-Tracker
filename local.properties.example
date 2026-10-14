@@ -1,0 +1,12 @@
+## Sanchay Local Configuration Example
+# Copy this file to `local.properties` and fill in your local secrets.
+# DO NOT commit `local.properties` to version control.
+
+sdk.dir=/path/to/your/Android/Sdk
+
+# Google Gemini Generative AI API Key
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
+
+# Optional Direct Neon Cloud SQL Endpoint & Connection String
+NEON_SQL_URL=https://<NEON_PROJECT_ID>.aws.neon.tech/sql
+NEON_DATABASE_URL=postgresql://<DB_USER>:<DB_PASSWORD>@<DB_HOST>/neondb?sslmode=require

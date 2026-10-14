@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum AccountStatus {
+  ACTIVE
+  DEACTIVATED_3_DAYS
+  DEACTIVATED_7_DAYS
+  DEACTIVATED_UNTIL_MANUAL_REACTIVATION
+  PENDING_DELETION
+}
+
+model User {
+  id                      String        @id @default(uuid())
+  email                   String        @unique // Only save Gmail in DB
+  name                    String?
+  status                  AccountStatus @default(ACTIVE)
+  deactivatedAt           DateTime?
+  deactivatedUntil        DateTime?     // For 3 days, 7 days, or null (until turned on)
+  scheduledDeletionAt     DateTime?     // Set account delete from DB range 15 days
+  isOneTimeLoginCompleted Boolean       @default(true)
+  createdAt               DateTime      @default(now())
+  updatedAt               DateTime      @updatedAt
+  lastLoginAt             DateTime      @default(now())
+
+  @@map("users")
+}
