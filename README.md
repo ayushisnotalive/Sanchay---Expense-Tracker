@@ -10,7 +10,7 @@ The repository is strictly partitioned into two independent, purpose-built modul
 
 ```
 Sanchay/
-├── backend/                  # ☕ Pure Java 21 Spring Boot 3.3.4 Enterprise Backend
+├── backend/                  # Pure Java 21 Spring Boot 3.3.4 Enterprise Backend
 │   ├── src/main/java/        # 100% Java REST API, JPA Repositories, Services, Security
 │   ├── src/main/resources/   # application.yml, HikariCP, JPA, Cache configurations
 │   ├── src/test/java/        # JUnit 5 integration and unit tests (100% pass)
